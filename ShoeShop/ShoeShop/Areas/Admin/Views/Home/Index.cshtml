@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@using ShoeShop.Common
+@{
+
+    var session = (UserLogin)Session[ShoeShop.Common.CommonConstants.USER_SESSION];
+}
+
+<!-- Content Header (Page header) -->
+@*<section class="content-header">
+    <h1>
+        Dashboard
+        <small>Version 2.0</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+    </ol>
+</section>*@
+<!-- Main content -->
+<section class="content">
+    <!-- Info boxes -->
+    <div>
+    <h3 class="box-title">Chào mừng @if (session != null)
+    {
+        @session.UserName
+    } đến trang quản trị admin</h3>
+    </div>
+
+</section>
+<!-- /.content -->
+@section scriptDashboardAdmin{
+<!-- Sparkline -->
+<script src="~/Assets/admin/js/jquery.sparkline.min.js"></script>
+<!-- jvectormap -->
+<script src="~/Assets/admin/js/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="~/Assets/admin/js/jquery-jvectormap-world-mill-en.js"></script>
+<!-- ChartJS 1.0.1 -->
+<script src="~/Assets/admin/js/Chart.min.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="~/Assets/admin/js/dashboard2.js"></script>
+}

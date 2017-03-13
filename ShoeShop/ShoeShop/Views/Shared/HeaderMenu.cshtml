@@ -1,0 +1,8 @@
+﻿@model List<ShoeShop.Models.CartItem>
+<div class="cssmenu" style="padding-top: 2px">
+    <ul>
+        <li><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;(@Model.Count) item</li>
+        <li>@Html.ActionLink("CHECKOUT", "Index", "ShoppingCart")</li>
+        @Html.Partial("_LoginPartial")
+    </ul>
+</div>

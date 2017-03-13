@@ -1,0 +1,17 @@
+﻿<link href="~/Content/bootstrap.css" rel="stylesheet" />
+@model List<Models.EF.Content>
+
+@{
+    ViewBag.Title = "Ordering";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Ordering</h2>
+@foreach (var item in Model)
+{
+    @Html.Raw(@item.Detail)
+    <div style="margin-top: 5%">
+        <span>Tag: </span>@(item.Tags ?? "")
+    </div>
+    <hr />
+}

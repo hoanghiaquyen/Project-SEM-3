@@ -1,0 +1,32 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/IgnoredPaths/=ABOUT/@EntryIndexedValue">about</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/IgnoredPaths/=CAREER/@EntryIndexedValue">career</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/IgnoredPaths/=CONTACT/@EntryIndexedValue">contact</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/IgnoredPaths/=CUSTOMER_002DSERVICE/@EntryIndexedValue">customer-service</s:String>
+	
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/IgnoredPaths/=FEEDBACK/@EntryIndexedValue">feedback</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/IgnoredPaths/=FONTS_005CICOMOON_005CICOMOON_002EEOT/@EntryIndexedValue">fonts\icomoon\icomoon.eot</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/IgnoredPaths/=FONTS_005CICOMOON_005CICOMOON_002EWOFF/@EntryIndexedValue">fonts\icomoon\icomoon.woff</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/IgnoredPaths/=ORDERING/@EntryIndexedValue">ordering</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/IgnoredPaths/=PAYMENT/@EntryIndexedValue">payment</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/IgnoredPaths/=PAYMENT_002DSERVICE/@EntryIndexedValue">payment-service</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/IgnoredPaths/=RESULT_002DSEARCH/@EntryIndexedValue">result-search</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/IgnoredPaths/=SHIPPING/@EntryIndexedValue">shipping</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/IgnoredPaths/=VIEWS_005CPRODUCT_005C_0026PAGE_003D/@EntryIndexedValue">Views\Product\&amp;page=</s:String>
+	
+	
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/MappedPaths/=PRODUCT_002DCATEGORY/@EntryIndexedValue"></s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/PathsInCorrectCasing/=ABOUT/@EntryIndexedValue">about</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/PathsInCorrectCasing/=CAREER/@EntryIndexedValue">career</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/PathsInCorrectCasing/=CONTACT/@EntryIndexedValue">contact</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/PathsInCorrectCasing/=CUSTOMER_002DSERVICE/@EntryIndexedValue">customer-service</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/PathsInCorrectCasing/=FEEDBACK/@EntryIndexedValue">feedback</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/PathsInCorrectCasing/=FONTS_005CICOMOON_005CICOMOON_002EEOT/@EntryIndexedValue">fonts\icomoon\icomoon.eot</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/PathsInCorrectCasing/=FONTS_005CICOMOON_005CICOMOON_002EWOFF/@EntryIndexedValue">fonts\icomoon\icomoon.woff</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/PathsInCorrectCasing/=ORDERING/@EntryIndexedValue">ordering</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/PathsInCorrectCasing/=PAYMENT/@EntryIndexedValue">payment</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/PathsInCorrectCasing/=PAYMENT_002DSERVICE/@EntryIndexedValue">payment-service</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/PathsInCorrectCasing/=PRODUCT_002DCATEGORY/@EntryIndexedValue">product-category</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/PathsInCorrectCasing/=RESULT_002DSEARCH/@EntryIndexedValue">result-search</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/PathsInCorrectCasing/=SHIPPING/@EntryIndexedValue">shipping</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/PathsInCorrectCasing/=VIEWS_005CPRODUCT_005C_0026PAGE_003D/@EntryIndexedValue">Views\Product\&amp;page=</s:String></wpf:ResourceDictionary>

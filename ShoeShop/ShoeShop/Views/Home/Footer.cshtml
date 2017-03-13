@@ -1,0 +1,47 @@
+﻿@model List<Models.EF.ProductCategory>
+<div class="footer">
+    <hr style="border: 50px solid #000000"/>
+    <div class="footer-bottom">
+        <div class="wrap">
+            <div class="section group">
+                <div class="col_1_of_5 span_1_of_5">
+                    <h3 class="m_9">Shop</h3>
+
+                    <ul class="list1">
+                        @foreach (var item in Model)
+                        {
+                            <li style="margin-bottom: 3%"><a href="/procatId/@item.MetaTitle-@item.Id">@item.Name</a></li>
+                        }
+                    </ul>
+                </div>
+                <div class="col_1_of_5 span_1_of_5">
+                    <h3 class="m_9">Support</h3>
+                    <ul class="list1">
+                        <li style="margin-bottom: 3%"><a href="/feedback">Feedback</a></li>
+                        <li style="margin-bottom: 3%"><a href="/ordering">Ordering </a></li>
+                        <li style="margin-bottom: 3%"><a href="/payment-service">Payment </a></li>
+                        <li style="margin-bottom: 3%"><a href="/shipping">Shipping </a></li>
+                    </ul>
+
+                    <ul class="sub_list2">
+                        <h3 class="m_9">Company Information</h3>
+                        <li style="margin-bottom: 3%"><a href="/about">About Us</a></li>
+                        <li style="margin-bottom: 3%"><a href="/contact">Contact</a></li>
+                        <li style="margin-bottom: 3%"><a href="/career">Careers</a></li>
+                    </ul>
+                </div>
+                @*<div id="googleMap1" style="width: 700px; height: 300px; float: right"></div>*@
+                <div id="map" style="width: 700px; height: 300px; float: right"></div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    <div class="copy">
+        <div class="wrap">
+            <p>
+                © All rights reserved | Template by&nbsp;<a href="http://w3layouts.com/"> W3Layouts</a>
+            </p>
+        </div>
+    </div>
+</div>
+

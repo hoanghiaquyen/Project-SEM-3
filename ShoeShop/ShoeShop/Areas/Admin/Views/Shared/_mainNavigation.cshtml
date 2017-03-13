@@ -1,0 +1,33 @@
+﻿@model List<object>
+@{
+    List<Models.EF.Menu> lstMenu = Model.ToList()[0] as List<Models.EF.Menu>;
+    
+}
+<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+     
+ 
+        <!-- /.search form -->
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu">
+            <li class="header">MENU DASHBOARD</li>
+
+            @foreach (var itemMenu in lstMenu)
+            {
+                <li class="treeview">
+                    <a href="@itemMenu.Link" target="@itemMenu.Target">
+                        <i class="@itemMenu.Icons"></i>
+                        <span>@itemMenu.Text</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    
+                </li>
+            }
+
+           
+        </ul>
+
+    </section>
+    <!-- /.sidebar -->
+</aside>

@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Models.EF.OrderDetail>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Danh sách</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>ProductID</th>
+                                <th>OrderId</th>
+                                <th>Số Lượng</th>
+                                <th>Giá</th>
+                                <th>Chức Năng</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr id="row_@item.ProductId">
+                                    <td>@item.ProductId</td>
+                                    <td>@item.OrderId</td>
+                                    <td>@item.Quantity</td>
+                                    <td>@item.Price</td>
+                                    
+
+
+                                    <td style="float:right">
+                                       
+
+                                        <button class="btn btn-danger">
+                                            @Ajax.ActionLink("Xóa", "Delete", new { @id = item.ProductId }, new AjaxOptions
+                                       {
+                                           Confirm = "Bạn có muốn xóa bản ghi này không?",
+                                           OnComplete = "$('#row_" + @item.ProductId + "').remove()",
+                                           HttpMethod = "Delete"
+                                       }, new { @type = "submit", @class = "fa fa-trash-o", @style = "color: white" })
+                                        </button>
+
+
+                                    </td>
+                                </tr>
+
+                                        }
+
+                        </tbody>
+                       
+                        <br />
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+<!-- /.content -->

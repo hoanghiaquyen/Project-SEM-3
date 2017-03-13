@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Assets/Client/css/css")
+    <link href="~/Assets/Client/css/form.css" rel="stylesheet" />
+    <link href="~/Assets/Client/css/component.css" rel="stylesheet" />
+    <link href="~/Content/jquery-ui.css" rel="stylesheet" />
+    <link href="~/Assets/Client/css/font-awesome.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="header-top">
+        <div class="wrap">
+            <div class="logo">
+                <a href=@Url.Action("Index", "Home")><img src=@Url.Content("~/Images/logo.png") alt="" /></a>
+            </div>
+            @{ Html.RenderAction("HeaderMenu", "Home");}
+
+
+        </div>
+    </div>
+    <div class="clear"></div>
+    @{ Html.RenderAction("MenuProductCategory", "ProductCategory"); }
+    <div class="clear"></div>
+    @RenderSection("_Slide", required: false)
+    <div class="wrap" style="margin-top: 3%">
+        @RenderSection("_Search", required: false)
+
+        <div class="clearfix"></div>
+        @RenderBody()
+    </div>
+
+    @{ Html.RenderAction("Footer", "Home");}
+
+    <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
+
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/megamenu")
+    <script>$(document).ready(function () { $(".megamenu").megamenu(); });</script>
+    @Scripts.Render("~/bundles/jscrollpane")
+    <script type="text/javascript" id="sourcecode">
+        $(function () {
+            $('.scroll-pane').jScrollPane();
+        });
+    </script>
+    @Scripts.Render("~/bundles/etalage")
+    @Scripts.Render("~/bundles/movetop")
+    @Scripts.Render("~/bundles/easing")
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1200);
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var defaults = {
+                containerID: 'toTop', // fading element id
+                containerHoverID: 'toTopHover', // fading element hover id
+                scrollSpeed: 1200,
+                easingType: 'linear'
+            };
+
+            $().UItoTop({ easingType: 'easeOutQuart' });
+
+        });
+    </script>
+    <script src="~/Assets/Client/js/jquery.wmuSlider.js"></script>
+    <script>
+        $('.example1').wmuSlider();
+    </script>
+    <script src="~/Assets/Client/js/classie.js"></script>
+    <script src="~/Assets/Client/js/uisearch.js"></script>
+    <script>
+        new UISearch(document.getElementById("sb-search"))
+    </script>
+    <script src="~/Scripts/autoSearch.js"></script>
+<script src="~/Scripts/filterPrice.js"></script>
+    @RenderSection("scripts", required: false)
+    @*js map footer*@
+    <script>
+
+      // This example displays a marker at the center of Australia.
+      // When the user clicks the marker, an info window opens.
+        // The maximum width of the info window is set to 200 pixels. 16.068096, 108.222692
+
+      function initMap() {
+          var uluru = { lat: 16.068096, lng: 108.222692 };
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 18,
+          center: uluru
+        });
+
+        var contentString = '38 Yen Bai, Hai Chau District, Da Nang City';
+
+        var infowindow = new google.maps.InfoWindow({
+          content: contentString,
+          maxWidth: 200
+        });
+
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map,
+          title: 'Address here'
+        });
+        marker.addListener('click', function() {
+          infowindow.open(map, marker);
+        });
+      }
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?callback=initMap">
+    </script>
+</body>
+</html>

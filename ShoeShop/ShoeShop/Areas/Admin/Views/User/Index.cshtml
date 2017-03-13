@@ -1,0 +1,113 @@
+﻿@model IEnumerable<Models.EF.User>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Danh sách người dùng</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Tài khoản</th>
+                                <th>Email</th>
+                                <th>Xác Nhận Email</th>
+                                <th>Số điện thoại</th>
+                                <th>Xác Nhận Số điện thoại</th>
+                                <th>Trạng Thái</th>
+                                <th>AccessFailedCount</th>
+                                <th>Chức năng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr id="row_@item.Id">
+                                    <td>@item.Id</td>
+                                    <td>@item.UserName</td>
+                                    <td>@item.Email</td>
+                                    @{
+                                        bool i = @item.EmailConfirmed;
+                                    }
+                                    @if (i)
+                                    {
+
+                                        <td>Đã Xác Nhận</td>;
+                                    }
+                                    else
+                                    {
+                                        <td>Chưa Xác Nhận</td>
+                                    }
+                                    <td>@item.PhoneNumber</td>
+
+                                   @{
+                                        i = @item.PhoneNumberConfirmed;
+                                       }
+                                       @if (i)
+                                       {
+
+                                        <td>Đã Xác Nhận</td>;
+                                       }
+                                       else
+                                       {
+                                           <td>Chưa Xác Nhận</td>
+                                       }
+                                    
+                                   
+                                    @{
+                                         i = @item.LockoutEnabled;
+                                    }
+                                    @if (i)
+                                    {
+
+                                        <td>Có</td>;
+                                    }
+                                    else
+                                    {
+                                        <td>Không</td>
+                                    }
+                                    <td>@item.AccessFailedCount</td>
+                                  
+
+                                    <td  style="float:right">
+                                        <a class="btn btn-primary " href="/Admin/User/Edit/@item.Id"><i class="fa fa-pencil" aria-hidden="true"></i> Sửa</a>
+                                        @*<a href="/Admin/User/Edit/@item.ID">Sửa</a>*@
+                                        @*<a href="/Admin/User/Delete/@item.Id">Xóa</a>*@
+                                              <button class="btn btn-danger">
+                                                @Ajax.ActionLink("Xóa", "Delete", new { @id = item.Id }, new AjaxOptions
+                                       {
+                                           Confirm = "Bạn có muốn xóa bản ghi này không?",
+                                           OnComplete = "$('#row_" + @item.Id + "').remove()",
+                                           HttpMethod = "Delete"
+                                       }, new { @type = "submit", @class = "fa fa-trash-o", @style = "color: white" })
+                                            </button>
+
+
+                                    </td>
+                                </tr>
+                               
+                                        }
+                           
+                        </tbody>
+                        <div class="Button"><a class="btn btn-primary " href="/Admin/User/Create"><i class="fa fa-pencil" aria-hidden="true"></i> Thêm Người Dùng</a></div>
+                        </br>
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+<!-- /.content -->

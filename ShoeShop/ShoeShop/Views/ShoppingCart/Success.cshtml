@@ -1,0 +1,11 @@
+﻿<link href="~/Content/bootstrap.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "Success";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="alert alert-success">
+    Shopping Success. Thanks you
+</div>
+@Html.ActionLink("You want continue shopping", "Index", "Home", new { }, new { @class = "continueShopping" })
+

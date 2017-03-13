@@ -1,0 +1,61 @@
+﻿<link href="~/Content/bootstrap.css" rel="stylesheet" />
+@model List<ShoeShop.Models.CartItem>
+@{
+    ViewBag.Title = "Shopping Cart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="content">
+    <div class="section group">
+        @if (Model.Count > 0)
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>Code</td>
+                        <td>Name</td>
+                        <td>Images</td>
+                        <td>Quantity</td>
+                        <td>Price</td>
+                        <td>Total</td>
+                        <td>Delete</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                {
+                        <tr>
+                            <td>@item.Product.Code</td>
+                            <td>@item.Product.Name</td>
+                            <td><img src="@item.Product.Image" height="70" /></td>
+                            <td><input type="text" class="txtquantity" data-id="@item.Product.Id" value="@item.Quantity" /></td>
+                            <td>@(item.Product.PromotionPrice ?? (item.Product.Price.GetValueOrDefault(0)))</td>
+                            <td>@((item.Product.PromotionPrice * item.Quantity ?? (item.Product.Price.GetValueOrDefault(0) * item.Quantity)).ToString("N"))</td>
+                            <td><a href="#" data-id="@item.Product.Id" class="btn-delete"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
+                        </tr>
+                    }
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>Total money:</td>
+                        <td>@ViewBag.TotalMoney</td>
+                        <td></td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+
+            <button id="btnContinue" class="btn btn-primary">Continue Shopping</button>
+            <button id="btnUpdate" class="btn btn-primary">Update Shopping Cart</button>
+            <button id="btnDeleteAll" class="btn btn-danger">Delete Shopping Cart</button>
+            <button id="btnPayment" class="btn btn-default">Payment Shopping</button>
+                        }
+                        else
+                        {
+                            <span>No product. Return @Html.ActionLink("Home", "Index", "Home")</span>
+                        }
+    </div>
+</div>
+<script src="~/Scripts/cart.js"></script>
+

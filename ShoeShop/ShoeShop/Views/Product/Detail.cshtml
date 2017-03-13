@@ -1,0 +1,200 @@
+﻿@model Models.EF.Product
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section _Search{
+    <div id="sb-search" class="sb-search">
+        <form action="/result-search?keyword=" method="GET">
+            <input class="sb-search-input" placeholder="Search everything..." type="text" name="keyword" id="search">
+            <input class="sb-search-submit" type="submit" value="">
+            <span class="sb-icon-search"></span>
+        </form>
+    </div>
+}
+<div class="rsidebar span_1_of_left">
+    <section class="sky-form">
+        <h4>Price</h4>
+        <div class="row1 scroll-pane">
+            <div class="col col-4">
+                <label class="checkbox"><input type="checkbox" name="checkbox" value="50" class="checkboxClass"/><i></i>$50.00 and Under (@ViewBag.Price50)</label>
+                <label class="checkbox"><input type="checkbox" name="checkbox" value="100" class="checkboxClass"><i></i>$100.00 and Under (@ViewBag.Price100)</label>
+                <label class="checkbox"><input type="checkbox" name="checkbox" value="200" class="checkboxClass"><i></i>$200.00 and Under (@ViewBag.Price200)</label>
+                <label class="checkbox"><input type="checkbox" name="checkbox" value="300" class="checkboxClass"><i></i>$300.00 and Under (@ViewBag.Price300)</label>
+                <label class="checkbox"><input type="checkbox" name="checkbox" value="400" class="checkboxClass"><i></i>$400.00 and Under (@ViewBag.Price400)</label>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="cont span_2_of_3">
+    <div class="labout span_1_of_a1">
+        <!-- start product_slider -->
+        <ul id="etalage">
+            <li>
+                <a href="#">
+                    <img class="etalage_thumb_image" src="@Model.Image" alt=""/>
+                    <img class="etalage_source_image" src="@Model.Image" alt=""/>
+                </a>
+            </li>
+
+            @Html.Raw(Model.MoreImages)
+        </ul>
+        <!-- end product_slider -->
+    </div>
+    <div class="cont1 span_2_of_a1">
+        <h3 class="m_3">@Model.Name</h3>
+
+        <div class="price_single">
+            Price:
+            <span class="reducedfrom">
+                @(Model.PromotionPrice != null ? "$" + Model.Price : "")
+            </span>
+            &nbsp;
+            <span class="actual">
+                @(Model.PromotionPrice != null ? "$" + Model.PromotionPrice : "$" + Model.Price)
+            </span>
+        </div>
+        <ul class="options">
+            <h4 class="m_9">Select a Size</h4>
+            <li><a href="#">6</a></li>
+            <li><a href="#">7</a></li>
+            <li><a href="#">8</a></li>
+            <li><a href="#">9</a></li>
+        </ul>
+        <div class="clear"></div>
+        <div class="btn_form">
+            
+        </div>
+        @Html.ActionLink("Buy Now", "AddItem", "ShoppingCart", new {@productId = @Model.Id, @quantity = 1}, new { @class = "continueShopping" })
+        @Html.ActionLink("Continue Shopping", "Index", "Home", new {}, new {@class = "continueShopping"})
+        <ul class="add-to-links">
+            <li><img src="/Images/wish.png" alt=""/><a href="#">Add to wishlist</a></li>
+        </ul>
+        <p class="m_desc">
+            @((Model.Description == null)?"No description":(Model.Description.Length >= 200 ? Model.Description.Substring(0, 200) + "..." : Model.Description))
+        </p>
+
+        <div class="social_single">
+            <ul>
+                <li class="fb"><a href="#"><span> </span></a></li>
+                <li class="tw"><a href="#"><span> </span></a></li>
+                <li class="g_plus"><a href="#"><span> </span></a></li>
+                <li class="rss"><a href="#"><span> </span></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="clear"></div>
+
+    <h3 class="m_3">Product Related</h3>
+    <ul id="flexiselDemo3">
+        <li>
+            <img src="/Images/pic11.jpg" alt=""/>
+            <div class="grid-flex">
+                <a href="#">Bloch</a>
+                <p>Rs 850</p>
+            </div>
+        </li>
+        <li>
+            <img src="/Images/pic10.jpg"/>
+            <div class="grid-flex">
+                <a href="#">Capzio</a>
+                <p>Rs 850</p>
+            </div>
+        </li>
+        <li>
+            <img src="/Images/pic9.jpg"/>
+            <div class="grid-flex">
+                <a href="#">Zumba</a>
+                <p>Rs 850</p>
+            </div>
+        </li>
+        <li>
+            <img src="/Images/pic8.jpg"/>
+            <div class="grid-flex">
+                <a href="#">Bloch</a>
+                <p>Rs 850</p>
+            </div>
+        </li>
+        <li>
+            <img src="/Images/pic7.jpg"/>
+            <div class="grid-flex">
+                <a href="#">Capzio</a>
+                <p>Rs 850</p>
+            </div>
+        </li>
+    </ul>
+
+    <div class="toogle">
+        <h3 class="m_3">Product Details</h3>
+        <p class="m_text">
+            @Model.Detail
+        </p>
+    </div>
+</div>
+
+<script src="/Scripts/jquery-ui-1.12.0.js"></script>
+<script>
+    jQuery(document).ready(function ($) {
+        $('#etalage').etalage({
+            thumb_image_width: 300,
+            thumb_image_height: 400,
+
+            show_hint: true
+        });
+        // This is for the dropdown list example:
+        $('.dropdownlist').change(function () {
+            window.etalage_show($(this).find('option:selected').attr('class'));
+        });
+    });
+</script>
+<script type="text/javascript" src="/Assets/Client/js/jquery.flexisel.js"></script>
+<script type="text/javascript">
+    $(window).load(function() {
+        $("#flexiselDemo1").flexisel();
+        $("#flexiselDemo2").flexisel({
+            enableResponsiveBreakpoints: true,
+            responsiveBreakpoints: {
+                portrait: {
+                    changePoint: 480,
+                    visibleItems: 1
+                },
+                landscape: {
+                    changePoint: 640,
+                    visibleItems: 2
+                },
+                tablet: {
+                    changePoint: 768,
+                    visibleItems: 3
+                }
+            }
+        });
+
+        $("#flexiselDemo3").flexisel({
+            visibleItems: 5,
+            animationSpeed: 1000,
+            autoPlay: true,
+            autoPlaySpeed: 3000,
+            pauseOnHover: true,
+            enableResponsiveBreakpoints: true,
+            responsiveBreakpoints: {
+                portrait: {
+                    changePoint: 480,
+                    visibleItems: 1
+                },
+                landscape: {
+                    changePoint: 640,
+                    visibleItems: 2
+                },
+                tablet: {
+                    changePoint: 768,
+                    visibleItems: 3
+                }
+            }
+        });
+
+    });
+</script>
+
+<div class="clear"></div>
+
+

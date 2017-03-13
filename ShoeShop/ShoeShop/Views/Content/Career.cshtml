@@ -1,0 +1,15 @@
+﻿<link href="~/Content/bootstrap.css" rel="stylesheet"/>
+@model List<Models.EF.Content>
+@{
+    ViewBag.Title = "Career";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Career</h2>
+
+@foreach (var item in Model)
+{
+    <hr />
+    @Html.Raw(@item.Detail)
+    <hr />
+}
